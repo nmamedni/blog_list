@@ -25,7 +25,7 @@ export default [
       'object-curly-spacing': ['error', 'always'],
       'arrow-spacing': ['error', { before: true, after: true }], 
       'no-console': 'off',
-      'no-unused-vars': ["error", { "args": "none" }],
+      'no-unused-vars': ["warn", { "args": "none" }],
     }, 
   },
   // { 

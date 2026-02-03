@@ -4,10 +4,10 @@ GET http://localhost:3003/api/blogs/
 GET http://localhost:3003/api/blogs/2
 
 ###
-GET http://localhost:3003/api/blogs/6978b198fd2a0a0daf0a512d
+GET http://localhost:3003/api/blogs/6981cb9b686a58dc03707b3d
 
 ###
-DELETE http://localhost:3003/api/blogs/697a0f966aa8008a778e2b41
+DELETE http://localhost:3003/api/blogs/6981cb9b686a58dc03707b3d
 
 ###
 POST http://localhost:3003/api/blogs
@@ -36,8 +36,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "title": "Olivia's blog",
-    "author": "Olivia Reinert",
+    "title": "Anna's blog",
+    "author": "h",
     "url": "",
-    "likes": 1024
+    "likes": 2228
 }
