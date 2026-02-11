@@ -1,10 +1,9 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
 
-blogsRouter.get('/', (request, response) => {
-  Blog.find({}).then((blogs) => {
-    response.json(blogs)
-  })
+blogsRouter.get('/', async (request, response) => {
+  const blogs = await Blog.find({})
+  response.json(blogs)
 })
 
 blogsRouter.get('/:id', (request, response, next) => {
@@ -19,43 +18,32 @@ blogsRouter.get('/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
-blogsRouter.post('/', (request, response, next) => {
+blogsRouter.post('/', async (request, response, next) => {
   const blog = new Blog(request.body)
 
-  blog.save()
-    .then((result) => {
-      response.status(201).json(result)
-    })
-    .catch(error => next(error))
+  const result = await blog.save()
+  response.status(201).json(result)
 })
 
-blogsRouter.delete('/:id', (request, response, next) => {
-  Blog.findByIdAndDelete(request.params.id)
-    .then(() => {
-      response.status(204).end()
-    })
-    .catch(error => next(error))
+blogsRouter.delete('/:id', async (request, response, next) => {
+  await Blog.findByIdAndDelete(request.params.id)
+  response.status(204).end()
 })
 
-blogsRouter.put('/:id', (request, response, next) => {
+blogsRouter.put('/:id', async(request, response, next) => {
+  const blog = await Blog.findById(request.params.id)
+  if (!blog) {
+    response.status(404).end()
+    return
+  }
 
-  Blog.findById(request.params.id)
-    .then(blog => {
-      if (!blog) {
-        return response.status(404).end()
-      }
+  blog.title = request?.body?.title
+  blog.author = request?.body?.author
+  blog.url = request?.body?.url
+  blog.likes = request?.body?.likes
 
-      blog.title = request?.body?.title
-      blog.author = request?.body?.author
-      blog.url = request?.body?.url
-      blog.likes = request?.body?.likes
-
-      return blog.save()
-        .then((updatedBlog) => {
-          response.json(updatedBlog)
-        })
-    })
-    .catch(error => next(error))
+  const updatedBlog = await blog.save()
+  response.json(updatedBlog)
 })
 
 

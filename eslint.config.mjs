@@ -23,7 +23,7 @@ export default [
       eqeqeq: 'error',
       'no-trailing-spaces': 'warn',
       'object-curly-spacing': ['error', 'always'],
-      'arrow-spacing': ['error', { before: true, after: true }], 
+      'arrow-spacing': ['warn', { before: true, after: true }], 
       'no-console': 'off',
       'no-unused-vars': ["warn", { "args": "none" }],
     }, 

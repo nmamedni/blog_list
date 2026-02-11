@@ -4,14 +4,15 @@
   "description": "blog listing app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js",
-    "lint": "eslint .",
-    "test": "node --test"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development node --watch index.js",
+    "test": "cross-env NODE_ENV=test node --test",
+    "lint": "eslint ."
   },
   "author": "nmamedni",
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^10.1.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mongoose": "^9.1.5"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@stylistic/eslint-plugin": "^5.7.1",
-    "eslint": "^9.39.2"
+    "eslint": "^9.39.2",
+    "supertest": "^7.2.2"
   }
 }

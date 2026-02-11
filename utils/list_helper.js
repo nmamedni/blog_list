@@ -23,7 +23,7 @@ const mostBlogs = (blogs) => {
     return acc
   }, {})
 
-  console.log('AuthorBlogs = ', AuthorBlogs)
+  // console.log('AuthorBlogs = ', AuthorBlogs)
 
   const result = {
     author: undefined,
@@ -48,7 +48,7 @@ const mostLikes = (blogs) => {
     return acc
   }, {})
 
-  console.log('AuthorLikes = ', AuthorLikes)
+  // console.log('AuthorLikes = ', AuthorLikes)
 
   const result = {
     author: undefined,

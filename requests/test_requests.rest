@@ -36,8 +36,40 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
+    "title": "Ivan's blog",
+    "author": "Ivan Petrov",
+    "likes": 21
+}
+
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
     "title": "Anna's blog",
     "author": "h",
     "url": "",
     "likes": 2228
+}
+
+###
+PUT http://localhost:3003/api/blogs/6981cb9b686a58dc03707b3d
+Content-Type: application/json
+
+{
+    "title": "Anna's blog",
+    "author": "Anna Gavalda",
+    "url": "https://bla.com",
+    "likes": 21
+}
+
+###
+PUT http://localhost:3003/api/blogs/2
+Content-Type: application/json
+
+{
+    "title": "Anna's blog",
+    "author": "Anna Gavalda",
+    "url": "https://bla.com",
+    "likes": 21
 }
